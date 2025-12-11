@@ -11,10 +11,10 @@ import (
 
 	"github.com/ipld/go-ipld-prime/node/bindnode"
 
-	"github.com/filecoin-project/go-address"
-	"github.com/filecoin-project/go-state-types/abi"
-	"github.com/filecoin-project/go-state-types/big"
-	"github.com/filecoin-project/go-state-types/crypto"
+	"github.com/post-quantumqoin/address"
+	"github.com/post-quantumqoin/core-types/abi"
+	"github.com/post-quantumqoin/core-types/big"
+	"github.com/post-quantumqoin/core-types/crypto"
 )
 
 // go type converter functions for bindnode for common Filecoin data types
