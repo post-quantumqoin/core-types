@@ -160,7 +160,6 @@ const (
 // Metadata about a seal proof type.
 type SealProofInfo struct {
 	// The proof sizes are 192 * the number of "porep" partitions.
-	// https://github.com/filecoin-project/rust-fil-proofs/blob/64390b6fcedb04dd1fdbe43c82b1e91c1439cea2/filecoin-proofs/src/constants.rs#L68-L80
 	ProofSize        uint64
 	SectorSize       SectorSize
 	WinningPoStProof RegisteredPoStProof
@@ -351,7 +350,6 @@ func (p RegisteredSealProof) RegisteredUpdateProof() (RegisteredUpdateProof, err
 }
 
 // mapping to porep_id values
-// https://github.com/filecoin-project/rust-filecoin-proofs-api/blob/9b580c2791f028b7ce3aaef0cf9d68956c50170d/src/registry.rs#L32
 var registeredProofIds = map[RegisteredSealProof]uint64{
 	RegisteredSealProof_StackedDrg2KiBV1:   0,
 	RegisteredSealProof_StackedDrg8MiBV1:   1,
@@ -373,14 +371,12 @@ var registeredProofIds = map[RegisteredSealProof]uint64{
 }
 
 func (p RegisteredSealProof) porepNonce() uint64 {
-	// https://github.com/filecoin-project/rust-filecoin-proofs-api/blob/9b580c2791f028b7ce3aaef0cf9d68956c50170d/src/registry.rs#L166
 	return 0
 }
 
 // PoRepID produces the porep_id for this RegisteredSealProof. Mainly used for
 // computing replica_id.
 func (p RegisteredSealProof) PoRepID() ([32]byte, error) {
-	// https://github.com/filecoin-project/rust-filecoin-proofs-api/blob/9b580c2791f028b7ce3aaef0cf9d68956c50170d/src/registry.rs#L174
 
 	var id [32]byte
 
@@ -406,7 +402,6 @@ func (p RegisteredSealProof) PoRepID() ([32]byte, error) {
 // ReplicaId produces the replica_id for this RegisteredSealProof. This is used
 // as the main input for computing SDR
 func (p RegisteredSealProof) ReplicaId(prover ActorID, sector SectorNumber, ticket []byte, commd []byte) ([32]byte, error) {
-	// https://github.com/filecoin-project/rust-fil-proofs/blob/5b46d4ac88e19003416bb110e2b2871523cc2892/storage-proofs-porep/src/stacked/vanilla/params.rs#L758-L775
 
 	pi, err := MakeProverID(prover)
 	if err != nil {
