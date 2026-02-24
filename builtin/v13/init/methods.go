@@ -1,0 +1,13 @@
+package init
+
+import (
+	"github.com/post-quantumqoin/core-types/abi"
+	"github.com/post-quantumqoin/core-types/builtin"
+)
+
+var Methods = map[abi.MethodNum]builtin.MethodMeta{
+	1: {"Constructor", *new(func(*ConstructorParams) *abi.EmptyValue)}, // Constructor
+	2: {"Exec", *new(func(*ExecParams) *ExecReturn)},                   // Exec
+	// TODO Are we exporting Exec4
+	3: {"Exec4", *new(func(*Exec4Params) *ExecReturn)}, // Exec4
+}
