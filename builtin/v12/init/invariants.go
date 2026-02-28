@@ -51,8 +51,8 @@ func CheckStateInvariants(st *State, tree *builtin.ActorTree, actorCodes map[str
 		acc.Require(actorId >= builtin.FirstNonSingletonActorId, "unexpected singleton ID value %v", actorId)
 
 		foundAddr, found := reverse[actorId]
-		isPair := (keyAddr.Protocol() == addr.Actor && foundAddr.Protocol() == addr.Delegated) ||
-			(keyAddr.Protocol() == addr.Delegated && foundAddr.Protocol() == addr.Actor)
+		isPair := (keyAddr.Protocol() == addr.Contract && foundAddr.Protocol() == addr.Delegated) ||
+			(keyAddr.Protocol() == addr.Delegated && foundAddr.Protocol() == addr.Contract)
 		dup := found && !isPair
 		acc.Require(!dup, "duplicate mapping to ID %v: %v, %v", actorId, keyAddr, foundAddr)
 		reverse[actorId] = keyAddr
@@ -74,7 +74,7 @@ func CheckStateInvariants(st *State, tree *builtin.ActorTree, actorCodes map[str
 		if (actor.Code == actorCodes[manifest.EthAccountKey] ||
 			actor.Code == actorCodes[manifest.EvmKey] ||
 			actor.Code == actorCodes[manifest.PlaceholderKey]) &&
-			keyAddr.Protocol() != addr.Actor {
+			keyAddr.Protocol() != addr.Contract {
 			acc.Require(keyAddr == *actor.Address, "address field in actor state differs from addr available in init actor map: actor=%v, init=%v", *actor.Address, keyAddr)
 		}
 
