@@ -11,7 +11,7 @@ import (
 	"github.com/filecoin-project/go-amt-ipld/v4"
 	"golang.org/x/xerrors"
 
-	commp "github.com/filecoin-project/go-commp-utils/nonffi"
+	commp "github.com/post-quantumqoin/go-commp-tools/nonffi"
 	"github.com/post-quantumqoin/core-types/builtin"
 	"github.com/post-quantumqoin/core-types/builtin/v8/market"
 	miner8 "github.com/post-quantumqoin/core-types/builtin/v8/miner"

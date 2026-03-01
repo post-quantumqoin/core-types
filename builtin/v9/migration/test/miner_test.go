@@ -6,7 +6,7 @@ import (
 
 	"github.com/post-quantumqoin/core-types/test_util"
 
-	commp "github.com/filecoin-project/go-commp-utils/nonffi"
+	commp "github.com/post-quantumqoin/go-commp-tools/nonffi"
 	market8 "github.com/post-quantumqoin/core-types/builtin/v8/market"
 
 	"github.com/post-quantumqoin/address"
